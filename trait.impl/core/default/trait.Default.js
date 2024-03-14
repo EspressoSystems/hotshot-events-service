@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"hotshot_events_service":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.76.0/core/default/trait.Default.html\" title=\"trait core::default::Default\">Default</a> for <a class=\"struct\" href=\"hotshot_events_service/events/struct.Options.html\" title=\"struct hotshot_events_service::events::Options\">Options</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
