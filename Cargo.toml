@@ -24,7 +24,7 @@ snafu = "0.8"
 tagged-base64 = { git = "https://github.com/EspressoSystems/tagged-base64", tag = "0.3.4" }
 tide-disco = { git = "https://github.com/EspressoSystems/tide-disco.git", tag = "v0.5.0" }
 toml = "0.8"
-versioned-binary-serialization = { git = "https://github.com/EspressoSystems/versioned-binary-serialization", tag = "0.1.2" }
+versioned-binary-serialization = { git = "https://github.com/EspressoSystems/versioned-binary-serialization", tag = "v0.1.4" }
 tracing = "0.1"
 
 [dev-dependencies]
