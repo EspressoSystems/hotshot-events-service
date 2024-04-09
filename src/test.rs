@@ -47,7 +47,7 @@ mod tests {
         )));
 
         // Start the web server.
-        let mut app = App::<_, Error, Version01>::with_state(events_streamer.clone());
+        let mut app = App::<_, Error>::with_state(events_streamer.clone());
 
         let hotshot_events_api =
             define_api::<Arc<RwLock<EventsStreamer<TestTypes>>>, TestTypes, Version01>(
@@ -107,11 +107,11 @@ mod tests {
                 tracing::info!("Received event in Client 1: {:?}", event);
                 receive_count += 1;
                 if receive_count > total_count {
-                    tracing::info!("Clien1 Received all sent events, exiting loop");
+                    tracing::info!("Client1 Received all sent events, exiting loop");
                     break;
                 }
             }
-            // Offest 1 is due to the startup event info
+            // Offset 1 is due to the startup event info
             assert_eq!(receive_count, total_count + 1);
         });
 
@@ -127,7 +127,7 @@ mod tests {
                     break;
                 }
             }
-            // Offest 1 is due to the startup event info
+            // Offset 1 is due to the startup event info
             assert_eq!(receive_count, total_count + 1);
         });
 
