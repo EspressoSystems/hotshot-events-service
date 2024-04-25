@@ -3140,7 +3140,7 @@ version = "0.1.12"
 dependencies = [
  "async-broadcast",
  "async-compatibility-layer",
- "async-lock 2.8.0",
+ "async-lock 3.3.0",
  "async-std",
  "async-trait",
  "clap",
