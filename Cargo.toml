@@ -17,7 +17,7 @@ derivative = "2.2"
 derive_more = "0.99"
 either = { version = "1", features = ["serde"] }
 futures = "0.3"
-hotshot-types = { git = "https://github.com/EspressoSystems/hotshot", branch = "tbro/instance_state-by-ref" }
+hotshot-types = { git = "https://github.com/EspressoSystems/hotshot", rev = "6d293ae9b" }
 serde = { version = "1.0", features = ["derive"] }
 snafu = "0.8"
 tagged-base64 = "0.4"
