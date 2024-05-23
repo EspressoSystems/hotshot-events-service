@@ -3095,7 +3095,7 @@ dependencies = [
 
 [[package]]
 name = "hotshot-events-service"
-version = "0.1.22"
+version = "0.1.24-pre-release"
 dependencies = [
  "async-broadcast",
  "async-compatibility-layer",
