@@ -158,7 +158,31 @@ impl<Types: NodeType> EventConsumer<Types> for EventsStreamer<Types> {
         };
         if filter {
             let builder_event = Arc::new(BuilderEvent::from(event));
-            let _status = self.subscriber_send_channel.broadcast(builder_event).await;
+            // log the time for sending the event to the subscriber
+            let start_time = std::time::Instant::now();
+            let _status = self
+                .subscriber_send_channel
+                .broadcast(builder_event.clone())
+                .await;
+            let end_time = std::time::Instant::now();
+
+            // log the time taken to send the event to the subscriber
+            let time_taken = end_time - start_time;
+            match builder_event.event {
+                BuilderEventType::HotshotDaProposal { .. } => {
+                    tracing::info!("Time taken to send DA proposal event: {:?}", time_taken);
+                }
+                BuilderEventType::HotshotQuorumProposal { .. } => {
+                    tracing::info!("Time taken to send Quorum proposal event: {:?}", time_taken);
+                }
+                BuilderEventType::HotshotTransactions { .. } => {
+                    tracing::info!("Time taken to send Transactions event: {:?}", time_taken);
+                }
+                BuilderEventType::HotshotDecide { .. } => {
+                    tracing::info!("Time taken to send Decide event: {:?}", time_taken);
+                }
+                _ => {}
+            }
         }
     }
 }
