@@ -655,7 +655,7 @@ dependencies = [
  "async-std",
  "async-trait",
  "color-eyre",
- "console-subscriber",
+ "console-subscriber 0.2.0",
  "flume",
  "futures",
  "tokio",
@@ -1325,12 +1325,12 @@ checksum = "41c270e7540d725e65ac7f1b212ac8ce349719624d7bcff99f8e2e488e8cf03f"
 [[package]]
 name = "cdn-broker"
 version = "0.1.0"
-source = "git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.6#569d6a6ec3ccbbd41c041a4c80bd260bc5c928ff"
+source = "git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.12#7bf490b34fb5b996d7e98d3d4be6d88028a076ac"
 dependencies = [
  "async-std",
- "cdn-proto",
+ "cdn-proto 0.1.0 (git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.12)",
  "clap",
- "console-subscriber",
+ "console-subscriber 0.3.0",
  "dashmap",
  "derivative",
  "jf-signature",
@@ -1349,10 +1349,10 @@ dependencies = [
 [[package]]
 name = "cdn-client"
 version = "0.1.0"
-source = "git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.6#569d6a6ec3ccbbd41c041a4c80bd260bc5c928ff"
+source = "git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.12#7bf490b34fb5b996d7e98d3d4be6d88028a076ac"
 dependencies = [
  "async-std",
- "cdn-proto",
+ "cdn-proto 0.1.0 (git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.12)",
  "clap",
  "jf-signature",
  "rand 0.8.5",
@@ -1364,15 +1364,49 @@ dependencies = [
 [[package]]
 name = "cdn-marshal"
 version = "0.1.0"
-source = "git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.6#569d6a6ec3ccbbd41c041a4c80bd260bc5c928ff"
+source = "git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.12#7bf490b34fb5b996d7e98d3d4be6d88028a076ac"
 dependencies = [
  "async-std",
- "cdn-proto",
+ "cdn-proto 0.1.0 (git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.12)",
  "clap",
  "jf-signature",
  "tokio",
  "tracing",
  "tracing-subscriber 0.3.18",
+]
+
+[[package]]
+name = "cdn-proto"
+version = "0.1.0"
+source = "git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.12#7bf490b34fb5b996d7e98d3d4be6d88028a076ac"
+dependencies = [
+ "anyhow",
+ "ark-serialize",
+ "async-trait",
+ "capnp",
+ "capnpc",
+ "derivative",
+ "jf-signature",
+ "kanal",
+ "lazy_static",
+ "mnemonic",
+ "num_enum",
+ "pem",
+ "prometheus",
+ "quinn 0.11.1",
+ "rand 0.8.5",
+ "rcgen 0.13.1",
+ "redis 0.25.4",
+ "rkyv",
+ "rustls 0.23.9",
+ "rustls-pki-types",
+ "sqlx",
+ "thiserror",
+ "tokio",
+ "tokio-rustls",
+ "tracing",
+ "url",
+ "warp",
 ]
 
 [[package]]
@@ -1392,11 +1426,10 @@ dependencies = [
  "mnemonic",
  "num_enum",
  "pem",
- "prometheus",
  "quinn 0.10.2",
  "rand 0.8.5",
  "rcgen 0.12.1",
- "redis",
+ "redis 0.24.0",
  "rkyv",
  "rustls 0.21.12",
  "sqlx",
@@ -1615,7 +1648,20 @@ dependencies = [
  "futures-core",
  "prost",
  "prost-types",
- "tonic",
+ "tonic 0.10.2",
+ "tracing-core",
+]
+
+[[package]]
+name = "console-api"
+version = "0.7.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a257c22cd7e487dd4a13d413beabc512c5052f0bc048db0da6a84c3d8a6142fd"
+dependencies = [
+ "futures-core",
+ "prost",
+ "prost-types",
+ "tonic 0.11.0",
  "tracing-core",
 ]
 
@@ -1625,7 +1671,7 @@ version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7481d4c57092cd1c19dd541b92bdce883de840df30aa5d03fd48a3935c01842e"
 dependencies = [
- "console-api",
+ "console-api 0.6.0",
  "crossbeam-channel",
  "crossbeam-utils",
  "futures-task",
@@ -1637,7 +1683,32 @@ dependencies = [
  "thread_local",
  "tokio",
  "tokio-stream",
- "tonic",
+ "tonic 0.10.2",
+ "tracing",
+ "tracing-core",
+ "tracing-subscriber 0.3.18",
+]
+
+[[package]]
+name = "console-subscriber"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "31c4cc54bae66f7d9188996404abdf7fdfa23034ef8e43478c8810828abad758"
+dependencies = [
+ "console-api 0.7.0",
+ "crossbeam-channel",
+ "crossbeam-utils",
+ "futures-task",
+ "hdrhistogram",
+ "humantime",
+ "prost",
+ "prost-types",
+ "serde",
+ "serde_json",
+ "thread_local",
+ "tokio",
+ "tokio-stream",
+ "tonic 0.11.0",
  "tracing",
  "tracing-core",
  "tracing-subscriber 0.3.18",
@@ -3065,8 +3136,8 @@ dependencies = [
 
 [[package]]
 name = "hotshot"
-version = "0.5.56"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.57#828f71864bec2600a2740e24c86468c5a485585b"
+version = "0.5.58"
+source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59#b9329c30b25dcbda5018a36ee06ee4294111778f"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3091,7 +3162,7 @@ dependencies = [
  "hotshot-orchestrator",
  "hotshot-task",
  "hotshot-task-impls",
- "hotshot-types",
+ "hotshot-types 0.1.11 (git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59)",
  "jf-signature",
  "libp2p-identity",
  "libp2p-networking",
@@ -3112,14 +3183,14 @@ dependencies = [
 [[package]]
 name = "hotshot-builder-api"
 version = "0.1.7"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.57#828f71864bec2600a2740e24c86468c5a485585b"
+source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59#b9329c30b25dcbda5018a36ee06ee4294111778f"
 dependencies = [
  "async-trait",
  "clap",
  "committable",
  "derive_more",
  "futures",
- "hotshot-types",
+ "hotshot-types 0.1.11 (git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59)",
  "serde",
  "snafu",
  "tagged-base64",
@@ -3143,7 +3214,7 @@ dependencies = [
  "either",
  "futures",
  "hotshot-example-types",
- "hotshot-types",
+ "hotshot-types 0.1.11 (git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.57)",
  "portpicker",
  "serde",
  "snafu",
@@ -3157,8 +3228,8 @@ dependencies = [
 
 [[package]]
 name = "hotshot-example-types"
-version = "0.5.56"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.57#828f71864bec2600a2740e24c86468c5a485585b"
+version = "0.5.58"
+source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59#b9329c30b25dcbda5018a36ee06ee4294111778f"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3174,7 +3245,7 @@ dependencies = [
  "hotshot",
  "hotshot-task",
  "hotshot-task-impls",
- "hotshot-types",
+ "hotshot-types 0.1.11 (git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59)",
  "rand 0.8.5",
  "serde",
  "sha2 0.10.8",
@@ -3188,8 +3259,8 @@ dependencies = [
 
 [[package]]
 name = "hotshot-orchestrator"
-version = "0.5.56"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.57#828f71864bec2600a2740e24c86468c5a485585b"
+version = "0.5.58"
+source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59#b9329c30b25dcbda5018a36ee06ee4294111778f"
 dependencies = [
  "anyhow",
  "async-compatibility-layer",
@@ -3200,7 +3271,7 @@ dependencies = [
  "clap",
  "csv",
  "futures",
- "hotshot-types",
+ "hotshot-types 0.1.11 (git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59)",
  "libp2p",
  "multiaddr",
  "serde",
@@ -3213,12 +3284,13 @@ dependencies = [
  "toml",
  "tracing",
  "vbs",
+ "vec1",
 ]
 
 [[package]]
 name = "hotshot-task"
-version = "0.5.56"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.57#828f71864bec2600a2740e24c86468c5a485585b"
+version = "0.5.58"
+source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59#b9329c30b25dcbda5018a36ee06ee4294111778f"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3232,8 +3304,8 @@ dependencies = [
 
 [[package]]
 name = "hotshot-task-impls"
-version = "0.5.56"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.57#828f71864bec2600a2740e24c86468c5a485585b"
+version = "0.5.58"
+source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59#b9329c30b25dcbda5018a36ee06ee4294111778f"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3243,14 +3315,14 @@ dependencies = [
  "async-trait",
  "bincode",
  "bitvec",
- "cdn-proto",
+ "cdn-proto 0.1.0 (git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.12)",
  "chrono",
  "committable",
  "either",
  "futures",
  "hotshot-builder-api",
  "hotshot-task",
- "hotshot-types",
+ "hotshot-types 0.1.11 (git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59)",
  "jf-signature",
  "jf-vid",
  "rand 0.8.5",
@@ -3286,7 +3358,7 @@ dependencies = [
  "bincode",
  "bitvec",
  "blake3",
- "cdn-proto",
+ "cdn-proto 0.1.0 (git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.6)",
  "committable",
  "custom_debug",
  "derivative",
@@ -3316,6 +3388,60 @@ dependencies = [
  "typenum",
  "url",
  "vbs",
+]
+
+[[package]]
+name = "hotshot-types"
+version = "0.1.11"
+source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59#b9329c30b25dcbda5018a36ee06ee4294111778f"
+dependencies = [
+ "anyhow",
+ "ark-bls12-381",
+ "ark-bn254",
+ "ark-ec",
+ "ark-ed-on-bn254",
+ "ark-ff",
+ "ark-serialize",
+ "ark-srs",
+ "ark-std",
+ "async-compatibility-layer",
+ "async-lock 2.8.0",
+ "async-std",
+ "async-trait",
+ "bincode",
+ "bitvec",
+ "blake3",
+ "cdn-proto 0.1.0 (git+https://github.com/EspressoSystems/Push-CDN?tag=0.3.12)",
+ "committable",
+ "custom_debug",
+ "derivative",
+ "digest 0.10.7",
+ "displaydoc",
+ "dyn-clone 1.0.17 (git+https://github.com/dtolnay/dyn-clone?tag=1.0.17)",
+ "either",
+ "espresso-systems-common",
+ "ethereum-types",
+ "futures",
+ "generic-array",
+ "jf-pcs",
+ "jf-signature",
+ "jf-utils",
+ "jf-vid",
+ "lazy_static",
+ "memoize",
+ "rand 0.8.5",
+ "rand_chacha 0.3.1",
+ "serde",
+ "sha2 0.10.8",
+ "snafu",
+ "tagged-base64",
+ "time 0.3.36",
+ "tokio",
+ "tracing",
+ "typenum",
+ "url",
+ "vbs",
+ "vec1",
 ]
 
 [[package]]
@@ -4373,20 +4499,21 @@ dependencies = [
 
 [[package]]
 name = "libp2p-networking"
-version = "0.5.56"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.57#828f71864bec2600a2740e24c86468c5a485585b"
+version = "0.5.58"
+source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59#b9329c30b25dcbda5018a36ee06ee4294111778f"
 dependencies = [
  "anyhow",
  "async-compatibility-layer",
  "async-lock 2.8.0",
  "async-std",
  "async-trait",
+ "bincode",
  "blake3",
  "custom_debug",
  "derive_builder",
  "either",
  "futures",
- "hotshot-types",
+ "hotshot-types 0.1.11 (git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.59)",
  "lazy_static",
  "libp2p",
  "libp2p-identity",
@@ -4399,7 +4526,6 @@ dependencies = [
  "tokio",
  "tokio-stream",
  "tracing",
- "vbs",
  "void",
 ]
 
@@ -6160,10 +6286,46 @@ dependencies = [
 ]
 
 [[package]]
+name = "rcgen"
+version = "0.13.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "54077e1872c46788540de1ea3d7f4ccb1983d12f9aa909b234468676c1a36779"
+dependencies = [
+ "pem",
+ "ring 0.17.8",
+ "rustls-pki-types",
+ "time 0.3.36",
+ "x509-parser 0.16.0",
+ "yasna",
+]
+
+[[package]]
 name = "redis"
 version = "0.24.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c580d9cbbe1d1b479e8d67cf9daf6a62c957e6846048408b80b43ac3f6af84cd"
+dependencies = [
+ "arc-swap",
+ "async-trait",
+ "bytes",
+ "combine",
+ "futures",
+ "futures-util",
+ "itoa",
+ "percent-encoding",
+ "pin-project-lite 0.2.14",
+ "ryu",
+ "tokio",
+ "tokio-retry",
+ "tokio-util",
+ "url",
+]
+
+[[package]]
+name = "redis"
+version = "0.25.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e0d7a6955c7511f60f3ba9e86c6d02b3c3f144f8c24b288d1f4e18074ab8bbec"
 dependencies = [
  "arc-swap",
  "async-trait",
@@ -7968,6 +8130,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "tokio-rustls"
+version = "0.26.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0c7bc40d0e5a97695bb96e27995cd3a08538541b0a846f65bba7a359f36700d4"
+dependencies = [
+ "rustls 0.23.9",
+ "rustls-pki-types",
+ "tokio",
+]
+
+[[package]]
 name = "tokio-stream"
 version = "0.1.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -8041,6 +8214,33 @@ name = "tonic"
 version = "0.10.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "d560933a0de61cf715926b9cac824d4c883c2c43142f787595e48280c40a1d0e"
+dependencies = [
+ "async-stream",
+ "async-trait",
+ "axum",
+ "base64 0.21.7",
+ "bytes",
+ "h2 0.3.26",
+ "http 0.2.12",
+ "http-body 0.4.6",
+ "hyper 0.14.29",
+ "hyper-timeout",
+ "percent-encoding",
+ "pin-project",
+ "prost",
+ "tokio",
+ "tokio-stream",
+ "tower",
+ "tower-layer",
+ "tower-service",
+ "tracing",
+]
+
+[[package]]
+name = "tonic"
+version = "0.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "76c4eb7a4e9ef9d4763600161f12f5070b92a578e1b634db88a6887844c91a13"
 dependencies = [
  "async-stream",
  "async-trait",
@@ -8389,9 +8589,9 @@ dependencies = [
 
 [[package]]
 name = "url"
-version = "2.5.0"
+version = "2.5.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "31e6302e3bb753d46e83516cae55ae196fc0c309407cf11ab35cc51a4c2a4633"
+checksum = "22784dbdf76fdde8af1aeda5622b546b422b6fc585325248a2bf9f5e41e94d6c"
 dependencies = [
  "form_urlencoded",
  "idna 0.5.0",
@@ -8483,6 +8683,15 @@ name = "vcpkg"
 version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "accd4ea62f7bb7a82fe23066fb0957d48ef677f6eeb8215f372f52e48bb32426"
+
+[[package]]
+name = "vec1"
+version = "1.12.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "eab68b56840f69efb0fefbe3ab6661499217ffdc58e2eef7c3f6f69835386322"
+dependencies = [
+ "serde",
+]
 
 [[package]]
 name = "version_check"
@@ -8972,6 +9181,7 @@ dependencies = [
  "lazy_static",
  "nom",
  "oid-registry 0.7.0",
+ "ring 0.17.8",
  "rusticata-macros",
  "thiserror",
  "time 0.3.36",
