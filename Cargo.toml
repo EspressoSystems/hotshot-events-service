@@ -15,7 +15,7 @@ async-trait = "0.1"
 clap = { version = "4.4", features = ["derive", "env"] }
 derivative = "2.2"
 derive_more = "0.99"
-either = { version = "1.12", features = ["serde"] }
+either = { version = "1.13", features = ["serde"] }
 futures = "0.3"
 hotshot-types = { git = "https://github.com/EspressoSystems/HotShot.git", tag = "rc-0.5.59" }
 serde = { version = "1.0", features = ["derive"] }
