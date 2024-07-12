@@ -3072,7 +3072,7 @@ dependencies = [
 [[package]]
 name = "hotshot"
 version = "0.5.60"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.61#b7f5fa34f22df7af6fcfde92caa1b2153102d1df"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=ag/novid2#d9ca72af773b6b1f9e72871b59dc7f2f0e40d015"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3118,7 +3118,7 @@ dependencies = [
 [[package]]
 name = "hotshot-builder-api"
 version = "0.1.7"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.61#b7f5fa34f22df7af6fcfde92caa1b2153102d1df"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=ag/novid2#d9ca72af773b6b1f9e72871b59dc7f2f0e40d015"
 dependencies = [
  "async-trait",
  "clap",
@@ -3164,7 +3164,7 @@ dependencies = [
 [[package]]
 name = "hotshot-example-types"
 version = "0.5.60"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.61#b7f5fa34f22df7af6fcfde92caa1b2153102d1df"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=ag/novid2#d9ca72af773b6b1f9e72871b59dc7f2f0e40d015"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3182,6 +3182,7 @@ dependencies = [
  "hotshot-task-impls",
  "hotshot-types",
  "rand 0.8.5",
+ "reqwest",
  "serde",
  "sha2 0.10.8",
  "sha3",
@@ -3196,7 +3197,7 @@ dependencies = [
 [[package]]
 name = "hotshot-orchestrator"
 version = "0.5.60"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.61#b7f5fa34f22df7af6fcfde92caa1b2153102d1df"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=ag/novid2#d9ca72af773b6b1f9e72871b59dc7f2f0e40d015"
 dependencies = [
  "anyhow",
  "async-compatibility-layer",
@@ -3226,7 +3227,7 @@ dependencies = [
 [[package]]
 name = "hotshot-task"
 version = "0.5.60"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.61#b7f5fa34f22df7af6fcfde92caa1b2153102d1df"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=ag/novid2#d9ca72af773b6b1f9e72871b59dc7f2f0e40d015"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3241,7 +3242,7 @@ dependencies = [
 [[package]]
 name = "hotshot-task-impls"
 version = "0.5.60"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.61#b7f5fa34f22df7af6fcfde92caa1b2153102d1df"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=ag/novid2#d9ca72af773b6b1f9e72871b59dc7f2f0e40d015"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3277,7 +3278,7 @@ dependencies = [
 [[package]]
 name = "hotshot-types"
 version = "0.1.11"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.61#b7f5fa34f22df7af6fcfde92caa1b2153102d1df"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=ag/novid2#d9ca72af773b6b1f9e72871b59dc7f2f0e40d015"
 dependencies = [
  "anyhow",
  "ark-bls12-381",
@@ -4401,7 +4402,7 @@ dependencies = [
 [[package]]
 name = "libp2p-networking"
 version = "0.5.60"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=rc-0.5.61#b7f5fa34f22df7af6fcfde92caa1b2153102d1df"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=ag/novid2#d9ca72af773b6b1f9e72871b59dc7f2f0e40d015"
 dependencies = [
  "anyhow",
  "async-compatibility-layer",
