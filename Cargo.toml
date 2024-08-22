@@ -31,3 +31,7 @@ vbs = "0.1.4"
 hotshot-example-types = { git = "https://github.com/EspressoSystems/HotShot.git", tag = "0.5.71" }
 portpicker = "0.1.1"
 surf-disco = "0.9"
+
+[patch."https://github.com/EspressoSystems/HotShot.git"]
+hotshot-types = { git = "https://github.com/EspressoSystems//HotShot.git", branch = "bump/rc-0.5.72" }
+hotshot-example-types = { git = "https://github.com/EspressoSystems//HotShot.git", branch = "bump/rc-0.5.72" }
