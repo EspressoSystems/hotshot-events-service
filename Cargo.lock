@@ -2954,7 +2954,7 @@ dependencies = [
 [[package]]
 name = "hotshot"
 version = "0.5.78"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=0.5.78#be7d9be60abbf8f293b7e95940ff77eff2e0739e"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/trait_builder_transaction#5c5a8f30025cf29ef25b3343740795381111c624"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3001,7 +3001,7 @@ dependencies = [
 [[package]]
 name = "hotshot-builder-api"
 version = "0.1.7"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=0.5.78#be7d9be60abbf8f293b7e95940ff77eff2e0739e"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/trait_builder_transaction#5c5a8f30025cf29ef25b3343740795381111c624"
 dependencies = [
  "async-trait",
  "clap",
@@ -3048,7 +3048,7 @@ dependencies = [
 [[package]]
 name = "hotshot-example-types"
 version = "0.5.78"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=0.5.78#be7d9be60abbf8f293b7e95940ff77eff2e0739e"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/trait_builder_transaction#5c5a8f30025cf29ef25b3343740795381111c624"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3081,7 +3081,7 @@ dependencies = [
 [[package]]
 name = "hotshot-task"
 version = "0.5.78"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=0.5.78#be7d9be60abbf8f293b7e95940ff77eff2e0739e"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/trait_builder_transaction#5c5a8f30025cf29ef25b3343740795381111c624"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3096,7 +3096,7 @@ dependencies = [
 [[package]]
 name = "hotshot-task-impls"
 version = "0.5.78"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=0.5.78#be7d9be60abbf8f293b7e95940ff77eff2e0739e"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/trait_builder_transaction#5c5a8f30025cf29ef25b3343740795381111c624"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3133,7 +3133,7 @@ dependencies = [
 [[package]]
 name = "hotshot-types"
 version = "0.1.11"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=0.5.78#be7d9be60abbf8f293b7e95940ff77eff2e0739e"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/trait_builder_transaction#30acb413b2e1906c7b3496adf3030fd66e2053ed"
 dependencies = [
  "anyhow",
  "ark-bn254",
@@ -4190,7 +4190,7 @@ dependencies = [
 [[package]]
 name = "libp2p-networking"
 version = "0.5.78"
-source = "git+https://github.com/EspressoSystems/HotShot.git?tag=0.5.78#be7d9be60abbf8f293b7e95940ff77eff2e0739e"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/trait_builder_transaction#5c5a8f30025cf29ef25b3343740795381111c624"
 dependencies = [
  "anyhow",
  "async-compatibility-layer",
