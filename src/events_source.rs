@@ -1,10 +1,9 @@
 use std::{marker::PhantomData, sync::Arc};
 
 use async_broadcast::{broadcast, InactiveReceiver, Sender as BroadcastSender};
-use async_std::future;
 use async_trait::async_trait;
 use futures::{
-    future::BoxFuture,
+    future::{ready, BoxFuture},
     stream::{BoxStream, Stream, StreamExt},
 };
 use hotshot_types::{
@@ -137,7 +136,7 @@ impl<Types: NodeType> EventsSource<Types> for EventsStreamer<Types> {
 
         if let Some(filter) = filter {
             receiver
-                .filter(move |event| future::ready(filter.should_broadcast(&event.as_ref().event)))
+                .filter(move |event| ready(filter.should_broadcast(&event.as_ref().event)))
                 .boxed()
         } else {
             receiver.boxed()
