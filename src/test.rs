@@ -2,11 +2,7 @@
 mod tests {
     use std::sync::Arc;
 
-    use async_compatibility_layer::{
-        art::async_spawn,
-        logging::{setup_backtrace, setup_logging},
-    };
-    use async_std::sync::RwLock;
+    use async_lock::RwLock;
     use futures::stream::StreamExt;
     use hotshot_example_types::node_types::TestTypes;
     use hotshot_types::{
@@ -22,6 +18,8 @@ mod tests {
     };
     use surf_disco::Client;
     use tide_disco::{App, Url};
+    use tokio::spawn;
+    use tracing_subscriber::EnvFilter;
     use vbs::version::{StaticVersion, StaticVersionType};
 
     //use crate::fetch::Fetch;
@@ -38,11 +36,10 @@ mod tests {
         }
     }
 
-    #[async_std::test]
+    #[tokio::test]
     async fn test_no_active_receiver() {
         tracing::info!("Starting test_no_active_receiver");
-        setup_logging();
-        setup_backtrace();
+
         let port = portpicker::pick_unused_port().expect("Could not find an open port");
         let api_url = Url::parse(format!("http://localhost:{port}").as_str()).unwrap();
 
@@ -65,9 +62,9 @@ mod tests {
         app.register_module("hotshot_events", hotshot_events_api)
             .expect("Failed to register hotshot events API");
 
-        async_spawn(app.serve(api_url, StaticVersion::<0, 1>::instance()));
+        spawn(app.serve(api_url, StaticVersion::<0, 1>::instance()));
         let total_count = 5;
-        let send_handle = async_spawn(async move {
+        let send_handle = spawn(async move {
             let mut send_count = 0;
             loop {
                 let tx_event = generate_event(send_count);
@@ -85,13 +82,15 @@ mod tests {
             }
         });
 
-        send_handle.await;
+        send_handle.await.expect("send_handle failed");
     }
 
-    #[async_std::test]
+    #[tokio::test]
     async fn test_startup_info_endpoint() {
-        setup_logging();
-        setup_backtrace();
+        // Initialize logging
+        let _ = tracing_subscriber::fmt()
+            .with_env_filter(EnvFilter::from_default_env())
+            .try_init();
 
         let port = portpicker::pick_unused_port().expect("Could not find an open port");
         let api_url = Url::parse(format!("http://localhost:{port}").as_str()).unwrap();
@@ -126,7 +125,7 @@ mod tests {
         app.register_module("api", hotshot_events_api)
             .expect("Failed to register hotshot events API");
 
-        async_spawn(app.serve(api_url.clone(), StaticVersion::<0, 1>::instance()));
+        spawn(app.serve(api_url.clone(), StaticVersion::<0, 1>::instance()));
 
         let client = Client::<Error, StaticVersion<0, 1>>::new(
             format!("http://localhost:{}/api", port).parse().unwrap(),
@@ -143,11 +142,14 @@ mod tests {
         assert_eq!(startup_info.non_staked_node_count, non_staked_node_count);
     }
 
-    #[async_std::test]
+    #[tokio::test]
     async fn test_event_stream() {
         tracing::info!("Starting test_event_stream");
-        setup_logging();
-        setup_backtrace();
+
+        // Initialize logging
+        let _ = tracing_subscriber::fmt()
+            .with_env_filter(EnvFilter::from_default_env())
+            .try_init();
 
         let port = portpicker::pick_unused_port().expect("Could not find an open port");
         let api_url = Url::parse(format!("http://localhost:{port}").as_str()).unwrap();
@@ -171,7 +173,7 @@ mod tests {
         app.register_module("hotshot_events", hotshot_events_api)
             .expect("Failed to register hotshot events API");
 
-        async_spawn(app.serve(api_url, StaticVersion::<0, 1>::instance()));
+        spawn(app.serve(api_url, StaticVersion::<0, 1>::instance()));
 
         // Start Client 1
         let client_1 = Client::<Error, StaticVersion<0, 1>>::new(
@@ -213,7 +215,7 @@ mod tests {
 
         let total_count = 5;
         // wait for these events to receive on client 1
-        let receive_handle_1 = async_spawn(async move {
+        let receive_handle_1 = spawn(async move {
             let mut receive_count = 0;
             while let Some(event) = events_1.next().await {
                 let event = event.unwrap();
@@ -233,7 +235,7 @@ mod tests {
         });
 
         // wait for these events to receive on client 2
-        let receive_handle_2 = async_spawn(async move {
+        let receive_handle_2 = spawn(async move {
             let mut receive_count = 0;
             while let Some(event) = events_2.next().await {
                 let event = event.unwrap();
@@ -252,7 +254,7 @@ mod tests {
             tracing::info!("stream ended");
         });
 
-        let send_handle = async_spawn(async move {
+        let send_handle = spawn(async move {
             let mut send_count = 0;
             loop {
                 let tx_event = generate_event(send_count);
@@ -271,8 +273,8 @@ mod tests {
             }
         });
 
-        send_handle.await;
-        receive_handle_1.await;
-        receive_handle_2.await;
+        send_handle.await.expect("send_handle failed");
+        receive_handle_1.await.expect("receive_handle_1 failed");
+        receive_handle_2.await.expect("receive_handle_2 failed");
     }
 }

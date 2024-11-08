@@ -21,7 +21,6 @@ jobs:
           # No optional features
           - ''
     env:
-        RUSTFLAGS: "--cfg async_executor_impl=\"async-std\" --cfg async_channel_impl=\"async-std\""
         RUST_LOG: info
     steps:
       - uses: styfle/cancel-workflow-action@0.12.0
