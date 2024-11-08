@@ -2908,7 +2908,7 @@ dependencies = [
 [[package]]
 name = "hotshot"
 version = "0.5.79"
-source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#4c96d4c6281be796080c0d07bdece73d3ea6065a"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#d95861d3fe8161dba7bbc370bf1f00e6902d519a"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -2955,7 +2955,7 @@ dependencies = [
 [[package]]
 name = "hotshot-builder-api"
 version = "0.1.7"
-source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#4c96d4c6281be796080c0d07bdece73d3ea6065a"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#d95861d3fe8161dba7bbc370bf1f00e6902d519a"
 dependencies = [
  "async-trait",
  "clap",
@@ -3002,7 +3002,7 @@ dependencies = [
 [[package]]
 name = "hotshot-example-types"
 version = "0.5.79"
-source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#4c96d4c6281be796080c0d07bdece73d3ea6065a"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#d95861d3fe8161dba7bbc370bf1f00e6902d519a"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3035,7 +3035,7 @@ dependencies = [
 [[package]]
 name = "hotshot-task"
 version = "0.5.79"
-source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#4c96d4c6281be796080c0d07bdece73d3ea6065a"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#d95861d3fe8161dba7bbc370bf1f00e6902d519a"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3049,7 +3049,7 @@ dependencies = [
 [[package]]
 name = "hotshot-task-impls"
 version = "0.5.79"
-source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#4c96d4c6281be796080c0d07bdece73d3ea6065a"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#d95861d3fe8161dba7bbc370bf1f00e6902d519a"
 dependencies = [
  "anyhow",
  "async-broadcast",
@@ -3086,7 +3086,7 @@ dependencies = [
 [[package]]
 name = "hotshot-types"
 version = "0.1.11"
-source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#4c96d4c6281be796080c0d07bdece73d3ea6065a"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#d95861d3fe8161dba7bbc370bf1f00e6902d519a"
 dependencies = [
  "anyhow",
  "ark-bn254",
@@ -4167,7 +4167,7 @@ dependencies = [
 [[package]]
 name = "libp2p-networking"
 version = "0.5.79"
-source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#4c96d4c6281be796080c0d07bdece73d3ea6065a"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#d95861d3fe8161dba7bbc370bf1f00e6902d519a"
 dependencies = [
  "anyhow",
  "async-lock 3.4.0",
@@ -7876,7 +7876,7 @@ checksum = "06abde3611657adf66d383f00b093d7faecc7fa57071cce2578660c9f1010821"
 [[package]]
 name = "utils"
 version = "0.5.79"
-source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#4c96d4c6281be796080c0d07bdece73d3ea6065a"
+source = "git+https://github.com/EspressoSystems/HotShot.git?branch=sishan/tx_status_api#d95861d3fe8161dba7bbc370bf1f00e6902d519a"
 dependencies = [
  "tracing",
 ]
