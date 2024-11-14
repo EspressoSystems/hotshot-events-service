@@ -36,7 +36,7 @@ mod tests {
         }
     }
 
-    #[tokio::test]
+    #[tokio::test(flavor = "multi_thread")]
     async fn test_no_active_receiver() {
         tracing::info!("Starting test_no_active_receiver");
 
@@ -85,7 +85,7 @@ mod tests {
         send_handle.await.expect("send_handle failed");
     }
 
-    #[tokio::test]
+    #[tokio::test(flavor = "multi_thread")]
     async fn test_startup_info_endpoint() {
         // Initialize logging
         let _ = tracing_subscriber::fmt()
@@ -142,7 +142,7 @@ mod tests {
         assert_eq!(startup_info.non_staked_node_count, non_staked_node_count);
     }
 
-    #[tokio::test]
+    #[tokio::test(flavor = "multi_thread")]
     async fn test_event_stream() {
         tracing::info!("Starting test_event_stream");
 
