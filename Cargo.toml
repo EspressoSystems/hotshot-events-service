@@ -6,7 +6,7 @@ edition = "2021"
 
 [dependencies]
 async-broadcast = "0.7"
-async-lock = "3"
+async-lock = "2"
 async-trait = "0.1"
 clap = { version = "4.4", features = ["derive", "env"] }
 derivative = "2.2"

@@ -2879,7 +2879,7 @@ name = "hotshot-events-service"
 version = "0.1.49"
 dependencies = [
  "async-broadcast",
- "async-lock 3.4.0",
+ "async-lock 2.8.0",
  "async-trait",
  "clap",
  "derivative",
