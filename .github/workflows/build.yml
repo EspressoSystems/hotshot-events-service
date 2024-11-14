@@ -39,9 +39,6 @@ jobs:
       - name: Clippy
         run: cargo clippy --workspace --all-features --all-targets -- -D warnings
 
-      - name: Install nextest
-        run: cargo install cargo-nextest
-
       - name: Test
         run: |
           cargo nextest run --workspace --release --all-features --verbose --nocapture
