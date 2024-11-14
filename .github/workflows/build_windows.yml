@@ -49,8 +49,10 @@ jobs:
         run: |
           cargo build --workspace --release
 
+      - name: Install nextest
+        run: cargo install cargo-nextest
+
       - name: Test
         run: |
-          cargo test --workspace --release --all-features --no-run
-          cargo test --workspace --release --all-features --verbose -- --nocapture --test-threads 2
+          cargo nextest run --workspace --release --all-features --verbose --nocapture 
         timeout-minutes: 60

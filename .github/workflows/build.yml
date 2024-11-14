@@ -39,10 +39,12 @@ jobs:
       - name: Clippy
         run: cargo clippy --workspace --all-features --all-targets -- -D warnings
 
+      - name: Install nextest
+        run: cargo install cargo-nextest
+
       - name: Test
         run: |
-          cargo test --workspace --release --all-features --no-run
-          cargo test --workspace --release --all-features --verbose -- --test-threads 2
+          cargo nextest run --workspace --release --all-features --verbose --nocapture
         timeout-minutes: 60
 
       - name: Generate Documentation
