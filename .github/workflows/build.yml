@@ -15,7 +15,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      RUSTFLAGS: '--cfg async_executor_impl="async-std" --cfg async_channel_impl="async-std"'
       RUST_LOG: info
     steps:
       - uses: styfle/cancel-workflow-action@0.12.1
@@ -42,8 +41,7 @@ jobs:
 
       - name: Test
         run: |
-          cargo test --workspace --release --all-features --no-run
-          cargo test --workspace --release --all-features --verbose -- --test-threads 2
+          cargo nextest run --workspace --release --all-features --verbose --nocapture
         timeout-minutes: 60
 
       - name: Generate Documentation

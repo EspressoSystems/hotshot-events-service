@@ -27,7 +27,6 @@ jobs:
   windows:
     runs-on: windows-latest
     env:
-        RUSTFLAGS: "--cfg async_executor_impl=\"async-std\" --cfg async_channel_impl=\"async-std\" --cfg hotshot_example"
         RUST_LOG: info
     steps:
       - name: Configure Git
@@ -50,8 +49,10 @@ jobs:
         run: |
           cargo build --workspace --release
 
+      - name: Install nextest
+        run: cargo install cargo-nextest
+
       - name: Test
         run: |
-          cargo test --workspace --release --all-features --no-run
-          cargo test --workspace --release --all-features --verbose -- --nocapture --test-threads 2
+          cargo nextest run --workspace --release --all-features --verbose --nocapture 
         timeout-minutes: 60
