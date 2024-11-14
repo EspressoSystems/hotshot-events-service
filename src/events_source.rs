@@ -1,9 +1,9 @@
-use std::{marker::PhantomData, sync::Arc};
+use std::{future::ready, marker::PhantomData, sync::Arc};
 
 use async_broadcast::{broadcast, InactiveReceiver, Sender as BroadcastSender};
 use async_trait::async_trait;
 use futures::{
-    future::{ready, BoxFuture},
+    future::BoxFuture,
     stream::{BoxStream, Stream, StreamExt},
 };
 use hotshot_types::{
